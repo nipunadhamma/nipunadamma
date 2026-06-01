@@ -20,7 +20,7 @@ body{
     padding-top:70px;
 }
 
-/* NAV */
+/* NAVBAR */
 .navbar{
     background:var(--parchment);
     height:70px;
@@ -47,9 +47,87 @@ body{
 
 .logo-section span{
     font-weight:bold;
+    font-size:18px;
     color:#3b2a1a;
 }
 
+/* MENU */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    margin-left:auto;
+    cursor:pointer;
+    color:#3b2a1a;
+}
+
+.nav-links{
+    display:flex;
+    margin-left:auto;
+    gap:10px;
+}
+
+.nav-item{
+    position:relative;
+    padding:10px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#3b2a1a;
+}
+
+/* DROPDOWN */
+.dropdown{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:180px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.nav-item:hover .dropdown{
+    display:block;
+}
+
+.dropdown a{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:#333;
+}
+
+.dropdown a:hover{
+    background:#eee;
+}
+
+/* MOBILE NAV */
+@media(max-width:900px){
+
+.menu-toggle{display:block;}
+
+.nav-links{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#2b2520;
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+.nav-item{
+    color:white;
+}
+
+.dropdown{
+    position:static;
+    background:#3a3128;
+}
+}
 /* LAYOUT */
 .container{
     display:flex;
@@ -133,11 +211,34 @@ body{
 
 <body>
 
-<!-- NAV -->
+<!-- ================= NAVBAR ================= -->
 <div class="navbar">
+
     <div class="logo-section">
         <img src="https://i.postimg.cc/Vvq8M0k2/logo1.png" class="nav-logo">
         <span>nipunadhamma.org</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <div class="nav-links" id="navLinks">
+
+        <div class="nav-item">ආලින්දය</div>
+
+        <div class="nav-item">ධම්ම වාහිණී
+            <div class="dropdown">
+                <a href="video.html">ධර්ම සාකච්ඡා</a>
+                <a href="player.html">ධර්ම දේශනා</a>
+            </div>
+        </div>
+
+        <div class="nav-item">පොත්ගුල
+            <div class="dropdown">
+                <a href="dhamma-books.html">දහම් පොත්</a>
+                <a href="blog.html">සඟරාව</a>
+            </div>
+        </div>
+
     </div>
 </div>
 
